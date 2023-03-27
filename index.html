@@ -7,14 +7,27 @@
 </head>
 <body>
 	<h1>Login Page</h1>
-	<form id="login-form">
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username"><br><br>
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"><br><br>
-		<input type="button" value="Login" onclick="login()">
-	</form>
-	<div id="message"></div>
+	<div id="login-container">
+		<form id="login-form">
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username"><br><br>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password"><br><br>
+			<input type="button" value="Login" onclick="login()">
+			<input type="button" value="Sign Up" onclick="showSignup()">
+		</form>
+		<div id="message"></div>
+	</div>
+	<div id="signup-container" style="display:none;">
+		<form id="signup-form">
+			<label for="new-username">New Username:</label>
+			<input type="text" id="new-username" name="new-username"><br><br>
+			<label for="new-password">New Password:</label>
+			<input type="password" id="new-password" name="new-password"><br><br>
+			<input type="button" value="Sign Up" onclick="signup()">
+		</form>
+		<div id="signup-message"></div>
+	</div>
 	<script src="script.js"></script>
 </body>
 </html>
