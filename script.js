@@ -12,6 +12,8 @@ function login() {
 	var username = $("#username").val();
 	var password = $("#password").val();
 	
+	$("#message").html("Signing in...");
+	
 	$.ajax({
 		url: "https://raw.githubusercontent.com/cratior/login-data/main/data.json",
 		success: function(data) {
@@ -39,10 +41,16 @@ function login() {
 				}
 			} catch (e) {
 				console.log("Error parsing JSON data.");
+				$("#message").html("Error signing in.");
 			}
 		},
 		error: function() {
 			console.log("Error loading JSON data.");
+			$("#message").html("Error signing in.");
+		},
+		complete: function() {
+			$("#username").val("");
+			$("#password").val("");
 		}
 	});
 }
@@ -50,6 +58,8 @@ function login() {
 function signup() {
 	var newUsername = $("#new-username").val();
 	var newPassword = $("#new-password").val();
+	
+	$("#signup-message").html("Signing up...");
 	
 	$.ajax({
 		url: "https://jsonplaceholder.typicode.com/posts",
@@ -72,6 +82,10 @@ function signup() {
 			setTimeout(function() {
 				$("#signup-form").removeClass("invalid");
 			}, 1000);
+		},
+		complete: function() {
+			$("#new-username").val("");
+			$("#new-password").val("");
 		}
 	});
 }
