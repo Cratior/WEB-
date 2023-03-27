@@ -106,6 +106,7 @@ body {
 .overlay-right {
 	right: 0;
 	transform: translateX(0);
+
 }
 
 .container.right-panel-active .overlay-right { transform: translateX(20%); }
