@@ -155,6 +155,7 @@ body {
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
+	border-radius: 20px;
 }
 
 .form-container button {
@@ -165,10 +166,25 @@ body {
 	margin: 8px 0;
 	padding: 12px 15px;
 	width: 100%;
+	border-radius: 20px;
 }
 
 .form-container button:hover {
 	background-color: #FF4B2B;
+}
+
+#message {
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.valid {
+	border: 2px solid green;
+}
+
+.invalid {
+	border: 2px solid red;
 }
 
 @media (max-width: 768px) {
@@ -196,7 +212,6 @@ body {
 		left: 0;
 		top: initial;
 	}
-	
 	.overlay {
 		width: 100%;
 		height: 200%;
