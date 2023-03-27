@@ -1,3 +1,13 @@
+$(document).ready(function() {
+	$("#signIn").click(function() {
+		$(".container").removeClass("right-panel-active");
+	});
+	
+	$("#signUp").click(function() {
+		$(".container").addClass("right-panel-active");
+	});
+});
+
 function login() {
 	var username = $("#username").val();
 	var password = $("#password").val();
@@ -16,13 +26,16 @@ function login() {
 				}
 				if (found) {
 					$("#message").html("Welcome, " + username + "!");
-					$("#login-container").addClass("active");
+					$("#login-form").addClass("valid");
+					setTimeout(function() {
+						$("#login-form").removeClass("valid");
+					}, 1000);
 				} else {
 					$("#message").html("Invalid username or password.");
-					$("#login-form").addClass("shake");
+					$("#login-form").addClass("invalid");
 					setTimeout(function() {
-						$("#login-form").removeClass("shake");
-					}, 500);
+						$("#login-form").removeClass("invalid");
+					}, 1000);
 				}
 			} catch (e) {
 				console.log("Error parsing JSON data.");
@@ -31,12 +44,6 @@ function login() {
 		error: function() {
 			console.log("Error loading JSON data.");
 		}
-	});
-}
-
-function showSignup() {
-	$("#login-container").fadeOut(500, function() {
-		$("#signup-container").fadeIn(500);
 	});
 }
 
@@ -54,9 +61,17 @@ function signup() {
 		},
 		success: function(data) {
 			$("#signup-message").html("Sign up successful!");
+			$("#signup-form").addClass("valid");
+			setTimeout(function() {
+				$("#signup-form").removeClass("valid");
+			}, 1000);
 		},
 		error: function() {
 			$("#signup-message").html("Error signing up.");
+			$("#signup-form").addClass("invalid");
+			setTimeout(function() {
+				$("#signup-form").removeClass("invalid");
+			}, 1000);
 		}
 	});
 }

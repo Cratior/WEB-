@@ -4,30 +4,40 @@
 	<title>Login Page</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="script.js"></script>
 </head>
 <body>
-	<h1>Login Page</h1>
-	<div id="login-container">
-		<form id="login-form">
-			<label for="username">Username:</label>
-			<input type="text" id="username" name="username"><br><br>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password"><br><br>
-			<input type="button" value="Login" onclick="login()">
-			<input type="button" value="Sign Up" onclick="showSignup()">
-		</form>
-		<div id="message"></div>
+	<div class="container">
+		<div class="form-container sign-in-container">
+			<form id="login-form">
+				<h1>Sign in</h1>
+				<input type="text" placeholder="Username" id="username" name="username">
+				<input type="password" placeholder="Password" id="password" name="password">
+				<button type="button" onclick="login()">Sign in</button>
+			</form>
+		</div>
+		<div class="form-container sign-up-container">
+			<form id="signup-form">
+				<h1>Create Account</h1>
+				<input type="text" placeholder="Username" id="new-username" name="new-username">
+				<input type="password" placeholder="Password" id="new-password" name="new-password">
+				<button type="button" onclick="signup()">Sign up</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with us please login with your personal info</p>
+					<button class="ghost" id="signIn">Sign in</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Enter your personal details and start journey with us</p>
+					<button class="ghost" id="signUp">Sign up</button>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div id="signup-container" style="display:none;">
-		<form id="signup-form">
-			<label for="new-username">New Username:</label>
-			<input type="text" id="new-username" name="new-username"><br><br>
-			<label for="new-password">New Password:</label>
-			<input type="password" id="new-password" name="new-password"><br><br>
-			<input type="button" value="Sign Up" onclick="signup()">
-		</form>
-		<div id="signup-message"></div>
-	</div>
-	<script src="script.js"></script>
 </body>
 </html>
