@@ -1,7 +1,22 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f6f5f7;
+	font-family: 'Open Sans', sans-serif;
+}
+
 .container {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+              0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
+	overflow: hidden;
 	width: 100%;
-	height: 100%;
+	max-width: 1000px;
+	min-height: 560px;
 }
 
 .form-container {
@@ -20,15 +35,14 @@
 .sign-up-container {
 	left: 100%;
 	width: 50%;
-	background-color: #f6f6f6;
 }
 
-.right-panel-active .sign-in-container {
+.container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
 
-.right-panel-active .sign-up-container {
-	transform: translateX(0%);
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
 }
 
 .overlay-container {
@@ -39,33 +53,45 @@
 	height: 100%;
 	overflow: hidden;
 	transition: transform 0.6s ease-in-out;
-	z-index: 1;
+	z-index: 100;
 }
 
-.right-panel-active .overlay-container {
+.container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
 
 .overlay {
-	position: absolute;
-	top: 0;
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #fff;
+	position: relative;
 	left: -100%;
-	width: 200%;
 	height: 100%;
+	width: 200%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+	transform: translateX(50%);
 }
 
 .overlay-panel {
 	position: absolute;
-	top: 0;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	padding: 0 40px;
+	text-align: center;
+	top: 0;
 	height: 100%;
 	width: 50%;
-	text-align: center;
-	transform: translateX(0%);
+	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
 }
 
@@ -73,82 +99,33 @@
 	transform: translateX(-20%);
 }
 
-.right-panel-active .overlay-left {
-	transform: translateX(0%);
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
 }
 
 .overlay-right {
 	right: 0;
-	transform: translateX(0%);
+	transform: translateX(0);
 }
 
-.right-panel-active .overlay-right {
-	transform: translateX(20%);
-}
+.container.right-panel-active .overlay-right { transform: translateX(20%); }
 
-.overlay h1 {
-	font-weight: bold;
-	margin-bottom: 20px;
-}
+h1 { color: #fff; font-size: 36px; font-weight: 600; line-height: 1.2; margin: 0; }
 
-.overlay p {
-	font-size: 14px;
-	line-height: 1.5;
-	margin-bottom: 20px;
-}
+p { color: #fff; font-size: 14px; font-weight: 400; line-height: 1.5; margin: 20px 0 30px; }
 
-.overlay button {
-	border-radius: 20px;
-	border: none;
-	background-color: #ff4c29;
-	color: #fff;
-	font-size: 16px;
-	font-weight: bold;
-	padding: 12px 24px;
-	cursor: pointer;
-	transition: all 0.3s ease-in-out;
-}
+form { background-color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 0 50px; text-align: center; }
 
-.overlay button:hover {
-	background-color: #333;
-}
+input { background-color: #eee; border: none; padding: 12px 15px; margin: 8px 0; width: 100%; }
 
-.ghost {
-	background-color: transparent;
-	border-color: #fff;
-	color: #fff;
-}
+button { background-color: #FF416C; border: none; color: #fff; cursor: pointer; padding: 12px 36px; margin: 10px 0; width: 100%; }
 
-.valid input {
-	border-color: #2ecc71;
-}
+button:hover { background-color: #FF4B2B; }
 
-.invalid input {
-	border-color: #e74c3c;
-}
+.ghost { background-color: transparent; border-color: #fff; color: #fff; }
 
-input[type="text"], input[type="email"], input[type="password"] {
-	background-color: #f6f6f6;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
-	font-size: 16px;
-	color: #333;
-}
+.valid { border: 2px solid green; }
 
-button[type="button"] {
-	border-radius: 20px;
-	border: none;
-	background-color: #ff4c29;
-	color: #fff;
-	font-size: 16px;
-	font-weight: bold;
-	padding: 12px 24px;
-	cursor: pointer;
-	transition: all 0.3s ease-in-out;
-}
+.invalid { border: 2px solid red; }
 
-button[type="button"]:hover {
-	background-color: #333;
-}
+#message, #signup-message { margin-top: 10px; font-size: 14px; font-weight: 600; color: #FF416C; }
