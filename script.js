@@ -1,9 +1,11 @@
 $(document).ready(function() {
-	$('#signUp').click(function() {
+	$('#signUp').click(function(event) {
+		event.preventDefault();
 		$('.container').addClass("right-panel-active");
 	});
 
-	$('#signIn').click(function() {
+	$('#signIn').click(function(event) {
+		event.preventDefault();
 		$('.container').removeClass("right-panel-active");
 	});
 
