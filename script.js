@@ -15,9 +15,13 @@ function login() {
 					}
 				}
 				if (found) {
-					$("#message").html("Login successful!");
+					$("#message").html("Welcome, " + username + "!");
 				} else {
 					$("#message").html("Invalid username or password.");
+					$("#login-form").addClass("shake");
+					setTimeout(function() {
+						$("#login-form").removeClass("shake");
+					}, 1000);
 				}
 			} catch (e) {
 				$("#message").html("Error loading accounts.");
