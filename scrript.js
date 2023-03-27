@@ -3,10 +3,7 @@ function login() {
 	var password = $("#password").val();
 	
 	$.ajax({
-		url: "https://api.jsonbin.io/b/60f7c7d7fcd33f7435b8d7c7",
-		headers: {
-			"secret-key": "$2b$10$JZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZJZ"
-		},
+		url: "https://raw.githubusercontent.com/cratior/login-data/main/data.json",
 		success: function(data) {
 			var accounts = data.accounts;
 			var found = false;
